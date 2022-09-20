@@ -9,7 +9,7 @@ const baseURL = "localhost:5000";
 const httpClient = axios.create({
   baseURL: `http://${baseURL}`,
 });
-const socket = io(`ws://${baseURL}`);
+const socket = io(`ws://${baseURL}`, {transport:['websocket']});
 
 export const getMessages = () => httpClient.get("/");
 

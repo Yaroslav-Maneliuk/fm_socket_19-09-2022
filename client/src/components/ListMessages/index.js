@@ -16,13 +16,14 @@ const ListMessages = () => {
   return (
     <section>
       {isFetching && <h2>Loading...</h2>}
-      {error && <h2>Error!!!</h2>}
+      {error && <h2>Error!!! {JSON.stringify(error)}</h2>}
       <ul>
-        {messages.map((msg) => (
-          <li key={msg.id}>
-            {msg.content} from {msg.user}
-          </li>
-        ))}
+        {messages.length > 0 &&
+          messages.map((msg) => (
+            <li key={msg.id}>
+              {msg.content} from {msg.user}
+            </li>
+          ))}
       </ul>
     </section>
   );

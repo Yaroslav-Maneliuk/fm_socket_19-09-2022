@@ -1,5 +1,5 @@
 import React from "react";
-import ListMessages from "./components/ListMessage";
+import ListMessages from "./components/ListMessages";
 import FormMessage from "./components/FormMessage";
 
 const App = () => {

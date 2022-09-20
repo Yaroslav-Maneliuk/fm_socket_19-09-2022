@@ -6,10 +6,11 @@ const PORT = process.env.PORT || port;
 const { Message } = require("./models");
 
 const server = http.createServer(app);
-const io = SocketServer(server);
+const cors = { origin: "http://localhost:3000" };
+const io = SocketServer(server, { cors });
 
 io.on("connection", (socket) => {
-  console.log("socket connect - ", socket);
+  console.log("socket connect");
   socket.on(SOCKET_EVENTS.NEW_MESSAGE, async (newMessage) => {
     try {
       console.log(newMessage);

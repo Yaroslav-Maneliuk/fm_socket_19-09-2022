@@ -10,7 +10,7 @@ const db = {};
 fs.readdirSync(__dirname)
   .filter((file) => file !== baseName && /.js$/i.test(file))
   .forEach((file) => {
-    const model = require(file);
+    const model = require(path.resolve(__dirname, file));
     db[model.modelName] = model;
   });
 
