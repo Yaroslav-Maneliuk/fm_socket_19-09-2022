@@ -19,16 +19,16 @@ export const getMessagesError = (error) => ({
 //createAction
 
 export const cerateMessageRequest = (message) => ({
-  type: ACTION_TYPES.GET_MESSAGES_REQUEST,
+  type: ACTION_TYPES.CREATE_MESSAGES_REQUEST,
   payload: { message },
 });
 
 export const cerateMessageSuccess = (message) => ({
-  type: ACTION_TYPES.GET_MESSAGES_SUCCESS,
+  type: ACTION_TYPES.CREATE_MESSAGES_SUCCESS,
   payload: { message },
 });
 
 export const cerateMessageError = (error) => ({
-  type: ACTION_TYPES.GET_MESSAGES_ERROR,
+  type: ACTION_TYPES.CREATE_MESSAGES_ERROR,
   payload: { error },
 });
