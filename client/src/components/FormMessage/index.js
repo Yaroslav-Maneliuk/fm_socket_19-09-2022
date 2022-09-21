@@ -1,10 +1,11 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as ChatActionCreators from "../../actions/chatActionCreators";
 
 const FormMessage = () => {
+  const { user } = useSelector((state) => state.chat);
   const dispatch = useDispatch();
   const { createMessageRequest } = bindActionCreators(
     ChatActionCreators,
@@ -20,6 +21,7 @@ const FormMessage = () => {
       <Form>
         <Field name="content" placeholder="content" />
         <Field name="login" placeholder="login" />
+        <input type="hidden" value={user._id} />
         <input type="submit" value="send message" />
       </Form>
     </Formik>

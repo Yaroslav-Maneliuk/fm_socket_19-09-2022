@@ -5,6 +5,7 @@ const initialState = {
   isFetching: false,
   error: null,
   messages: [],
+  user: {},
 };
 
 export default function chatReducer(state = initialState, action) {
@@ -13,6 +14,7 @@ export default function chatReducer(state = initialState, action) {
     case ACTION_TYPES.CREATE_MESSAGE_REQUEST: {
       return produce(state, (draftState) => {
         draftState.isFetching = true;
+        draftState.error = null;
       });
     }
     case ACTION_TYPES.GET_MESSAGES_ERROR:
@@ -31,7 +33,7 @@ export default function chatReducer(state = initialState, action) {
       } = action;
       return produce(state, (draftState) => {
         draftState.isFetching = false;
-        draftState.messages.push(...messages);
+        draftState.messages.push(...messages.reverse());
         draftState.error = null;
       });
     }

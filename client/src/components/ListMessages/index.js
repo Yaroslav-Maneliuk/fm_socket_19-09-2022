@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as ChatActionCreators from "../../actions/chatActionCreators";
@@ -10,9 +10,16 @@ const ListMessages = () => {
     ChatActionCreators,
     dispatch
   );
+  // const messagesReverse = messages.reverse();
   useEffect(() => {
     getMessagesRequest();
   }, []);
+  useLayoutEffect(()=>{
+    window.scrollTo({
+      top:document.body.scrollHeight,
+      behavior:'smooth'
+    })
+  }, [messages])
   return (
     <section>
       {isFetching && <h2>Loading...</h2>}
