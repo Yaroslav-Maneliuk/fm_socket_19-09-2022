@@ -17,9 +17,9 @@ export const createMessage = (message) =>
   socket.emit(SOCKET_EVENTS.NEW_MESSAGE, message);
 
 socket.on(SOCKET_EVENTS.NEW_MESSAGE, (message) => {
-  store.dispatch(ChatActionCreators.cerateMessageSuccess(message));
+  store.dispatch(ChatActionCreators.createMessageSuccess(message));
 });
 
 socket.on(SOCKET_EVENTS.NEW_MESSAGE_ERROR, (error) => {
-  store.dispatch(ChatActionCreators.cerateMessageError(error));
+  store.dispatch(ChatActionCreators.createMessageError(error));
 });

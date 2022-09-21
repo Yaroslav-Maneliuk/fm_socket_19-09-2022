@@ -7,7 +7,7 @@ export function* getMessagesSaga(action) {
     const {
       data: { data },
     } = yield API.getMessages();
-    yield put(ChatActionCreators.getMessagesError(data));
+    yield put(ChatActionCreators.getMessagesSuccess(data));
   } catch (error) {
     yield put(ChatActionCreators.getMessagesError(error));
   }
@@ -18,8 +18,8 @@ export function* createMessageSaga(action) {
     const {
       data: { data },
     } = yield API.createMessage(action.payload.message);
-    yield put(ChatActionCreators.cerateMessageSuccess(data));
+    yield put(ChatActionCreators.createMessageSuccess(data));
   } catch (error) {
-    yield put(ChatActionCreators.cerateMessageError(error));
+    yield put(ChatActionCreators.createMessageError(error));
   }
 }

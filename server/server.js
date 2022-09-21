@@ -17,7 +17,7 @@ io.on("connection", (socket) => {
       const saveMessage = await Message.create(newMessage);
       io.emit(SOCKET_EVENTS.NEW_MESSAGE, saveMessage);
     } catch (error) {
-      socket.emit(SOCKET_EVENTS.NEW_MESSAGE_ERROR, error);
+      io.emit(SOCKET_EVENTS.NEW_MESSAGE_ERROR, error);
     }
   });
   socket.on("disconnect", (reason) => {

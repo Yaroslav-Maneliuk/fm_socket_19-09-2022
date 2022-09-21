@@ -15,13 +15,14 @@ const ListMessages = () => {
   }, []);
   return (
     <section>
+      dfdhdbddb
       {isFetching && <h2>Loading...</h2>}
-      {error && <h2>Error!!! {JSON.stringify(error)}</h2>}
+      {error && <p>Error!!! {JSON.stringify(error)}</p>}
       <ul>
         {messages.length > 0 &&
           messages.map((msg) => (
-            <li key={msg.id}>
-              {msg.content} from {msg.user}
+            <li key={msg._id}>
+              {msg.content} from {msg.login}
             </li>
           ))}
       </ul>

@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export default function chatReducer(state = initialState, action) {
-  switch (action.types) {
+  switch (action.type) {
     case ACTION_TYPES.GET_MESSAGES_REQUEST:
     case ACTION_TYPES.CREATE_MESSAGE_REQUEST: {
       return produce(state, (draftState) => {
@@ -17,21 +17,21 @@ export default function chatReducer(state = initialState, action) {
     }
     case ACTION_TYPES.GET_MESSAGES_ERROR:
     case ACTION_TYPES.CREATE_MESSAGE_ERROR: {
+      const {
+        payload: { error },
+      } = action;
       return produce(state, (draftState) => {
-        const {
-          payload: { error },
-        } = action;
         draftState.isFetching = false;
         draftState.error = error;
       });
     }
     case ACTION_TYPES.GET_MESSAGES_SUCCESS: {
+      const {
+        payload: { messages },
+      } = action;
       return produce(state, (draftState) => {
-        const {
-          payload: { messages },
-        } = action;
         draftState.isFetching = false;
-        draftState.messages.push(...messages)
+        draftState.messages.push(...messages);
       });
     }
     case ACTION_TYPES.CREATE_MESSAGE_SUCCESS: {
@@ -40,7 +40,7 @@ export default function chatReducer(state = initialState, action) {
       } = action;
       return produce(state, (draftState) => {
         draftState.isFetching = false;
-        draftState.message.push(...message)
+        draftState.messages.push(message);
       });
     }
     default: {

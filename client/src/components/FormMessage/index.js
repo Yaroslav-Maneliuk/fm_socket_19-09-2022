@@ -16,10 +16,10 @@ const FormMessage = () => {
     // formikBag.resetForm();
   };
   return (
-    <Formik initialValues={{ content: "", user: "" }} onSubmit={onSubmit}>
+    <Formik initialValues={{ content: "", login: "" }} onSubmit={onSubmit}>
       <Form>
         <Field name="content" placeholder="content" />
-        <Field name="user" placeholder="user" />
+        <Field name="login" placeholder="login" />
         <input type="submit" value="send message" />
       </Form>
     </Formik>

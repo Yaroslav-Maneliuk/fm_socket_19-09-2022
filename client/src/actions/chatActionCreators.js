@@ -18,17 +18,17 @@ export const getMessagesError = (error) => ({
 
 //createAction
 
-export const cerateMessageRequest = (message) => ({
-  type: ACTION_TYPES.CREATE_MESSAGES_REQUEST,
+export const createMessageRequest = (message) => ({
+  type: ACTION_TYPES.CREATE_MESSAGE_REQUEST,
   payload: { message },
 });
 
-export const cerateMessageSuccess = (message) => ({
-  type: ACTION_TYPES.CREATE_MESSAGES_SUCCESS,
+export const createMessageSuccess = (message) => ({
+  type: ACTION_TYPES.CREATE_MESSAGE_SUCCESS,
   payload: { message },
 });
 
-export const cerateMessageError = (error) => ({
-  type: ACTION_TYPES.CREATE_MESSAGES_ERROR,
+export const createMessageError = (error) => ({
+  type: ACTION_TYPES.CREATE_MESSAGE_ERROR,
   payload: { error },
 });
