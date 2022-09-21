@@ -13,7 +13,7 @@ const FormMessage = () => {
   const onSubmit = (values, formikBag) => {
     console.log(values);
     createMessageRequest(values);
-    // formikBag.resetForm();
+    formikBag.resetForm();
   };
   return (
     <Formik initialValues={{ content: "", login: "" }} onSubmit={onSubmit}>

@@ -15,7 +15,6 @@ const ListMessages = () => {
   }, []);
   return (
     <section>
-      dfdhdbddb
       {isFetching && <h2>Loading...</h2>}
       {error && <p>Error!!! {JSON.stringify(error)}</p>}
       <ul>
